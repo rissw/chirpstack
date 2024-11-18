@@ -41,6 +41,7 @@ impl Into<String> for Region {
             Region::In865 => "IN865",
             Region::Ru864 => "RU864",
             Region::Ism2400 => "ISM2400",
+            Region::Kz865 => "KZ865",
         }
         .to_string()
     }
@@ -65,6 +66,7 @@ impl FromStr for Region {
             "IN865" => Region::In865,
             "RU864" => Region::Ru864,
             "ISM2400" => Region::Ism2400,
+            "KZ865" => Region::Kz865,
             _ => {
                 return Err("invalid region".into());
             }

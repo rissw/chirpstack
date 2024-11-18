@@ -28,6 +28,7 @@ pub mod eu868;
 pub mod in865;
 pub mod ism2400;
 pub mod kr920;
+pub mod kz865;
 pub mod ru864;
 pub mod us915;
 
@@ -51,6 +52,7 @@ pub enum CommonName {
     IN865,
     RU864,
     ISM2400,
+    KZ865,
 }
 
 impl fmt::Display for CommonName {
@@ -78,6 +80,7 @@ impl FromStr for CommonName {
             "IN865" => CommonName::IN865,
             "RU864" => CommonName::RU864,
             "ISM2400" => CommonName::ISM2400,
+            "KZ865" => CommonName::KZ865,
             _ => {
                 return Err(anyhow!("Unexpected CommonName: {}", s));
             }
@@ -963,5 +966,6 @@ pub fn get(
         CommonName::KR920 => Box::new(kr920::Configuration::new(repeater_compatible)),
         CommonName::RU864 => Box::new(ru864::Configuration::new(repeater_compatible)),
         CommonName::US915 => Box::new(us915::Configuration::new(repeater_compatible)),
+        CommonName::KZ865 => Box::new(kz865::Configuration::new(repeater_compatible)),
     }
 }
